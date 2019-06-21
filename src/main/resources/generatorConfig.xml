@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <classPathEntry location="D:\repository\mysql\mysql-connector-java\5.1.30\mysql-connector-java-5.1.30.jar" />
+    <context id="MySqlTables" targetRuntime="MyBatis3">
+        <property name="autoDelimitKeywords" value="true"/>
+        <property name="beginningDelimiter" value="`" />
+        <property name="endingDelimiter" value="`" />
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://10.244.76.19:3306/supplychain?useUnicode=true&amp;characterEncoding=UTF8&amp;useSSL=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true&amp;failOverReadOnly=false&amp;maxReconnects=10"
+                        userId="root" password="vj_LGDlh0vEaXZKNldFmy4lJnML_C8VW">
+        </jdbcConnection>
+
+        <!-- model的配置  -->
+        <javaModelGenerator targetPackage="com.xyd.mybatis.model"
+                            targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!--mybatis的xml的配置  -->
+        <sqlMapGenerator targetPackage="com.xyd.mybatis.mapper.xml"
+                         targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!--mapper的配置  -->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="com.xyd.mybatis.mapper"
+                             targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!--表配置  -->
+
+        <table tableName="apply_loan" domainObjectName="ApplyLoan"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="true"
+               selectByExampleQueryId="false">
+            <generatedKey column="apply_loan_id" sqlStatement="Mysql" identity="true" />
+        </table>
+
+
+        <table tableName="order_info" domainObjectName="OrderInfo"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="true"
+               selectByExampleQueryId="false">
+            <generatedKey column="order_id" sqlStatement="Mysql" identity="true" />
+        </table>
+    </context>
+</generatorConfiguration>
